@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lukáš Pačuta | CV</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a30;
+      --panel-2: #18223d;
+      --text: #edf2ff;
+      --muted: #a9b4d0;
+      --accent: #7cc4ff;
+      --accent-2: #8ef0c8;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,196,255,0.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(142,240,200,0.10), transparent 22%),
+        linear-gradient(180deg, #0b1020 0%, #0d1326 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,196,255,0.12);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .headline {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--muted);
+      margin: 0 0 20px;
+      max-width: 56ch;
+    }
+
+    .summary {
+      font-size: 1rem;
+      color: #dbe4ff;
+      max-width: 65ch;
+      margin: 0;
+    }
+
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      align-self: stretch;
+    }
+
+    .contact-card h3,
+    .section h2 {
+      margin: 0 0 16px;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      padding: 16px 0 52px;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(124,196,255,0.10);
+      border: 1px solid rgba(124,196,255,0.18);
+      color: #e9f5ff;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .job {
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .job-company {
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .job-date {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .job ul,
+    .achievements ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .job li,
+    .achievements li {
+      margin-bottom: 8px;
+      color: #d8e2ff;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .education-item,
+    .lang-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 0 0 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-card,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 28px; }
+      .hero-card, .section { padding: 20px; border-radius: 20px; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .job-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Procurement • Category Management • Global Sourcing</div>
+          <h1>Lukáš Pačuta</h1>
+          <p class="headline">Strategic Procurement &amp; Category Manager with experience in global sourcing across Europe, Mexico, and the USA.</p>
+          <p class="summary">
+            Procurement professional with more than 10 years of experience in strategic sourcing and category management.
+            Managing annual spend above €40M across indirect categories including PPE, packaging, janitorial, and office supplies.
+            Strong track record in cost savings, supplier base optimization, and procurement performance improvement.
+          </p>
+        </div>
+
+        <aside class="contact-card">
+          <h3>Contact</h3>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="label">Location</span>
+              <span class="value">Bernolákovo, Slovakia</span>
+            </div>
+            <div class="contact-item">
+              <span class="label">Phone</span>
+              <a class="value" href="tel:+421905392271">+421 905 392 271</a>
+            </div>
+            <div class="contact-item">
+              <span class="label">Email</span>
+              <a class="value" href="mailto:pacuta.lukas@gmail.com">pacuta.lukas@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="label">LinkedIn</span>
+              <a class="value" href="https://linkedin.com/in/lukas-pacuta" target="_blank" rel="noreferrer">linkedin.com/in/lukas-pacuta</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="section">
+          <h2>Professional Experience</h2>
+          <div class="timeline">
+            <article class="job">
+              <div class="job-top">
+                <div>
+                  <p class="job-title">Category Manager</p>
+                  <div class="job-company">Direct Sourcing Solutions LLC – Bratislava, Slovakia</div>
+                </div>
+                <div class="job-date">March 2023 – Present</div>
+              </div>
+              <ul>
+                <li>Responsible for category strategy and sourcing initiatives for PPE, packaging, janitorial, and office supply categories with annual spend above €40M.</li>
+                <li>Leading global sourcing projects and supplier negotiations across Europe and Mexico.</li>
+                <li>Developing category strategies focused on cost optimization and supplier performance.</li>
+                <li>Negotiating supplier contracts and long-term agreements.</li>
+                <li>Monitoring supplier KPIs including cost savings, delivery performance, and quality metrics.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-top">
+                <div>
+                  <p class="job-title">Purchasing Manager</p>
+                  <div class="job-company">Direct Sourcing Solutions LLC</div>
+                </div>
+                <div class="job-date">January 2022 – March 2023</div>
+              </div>
+              <ul>
+                <li>Led an international procurement team of 8 buyers in Mexico.</li>
+                <li>Managed sourcing activities covering spend above €30M.</li>
+                <li>Handled supplier sourcing, RFQ processes, and contract negotiations.</li>
+                <li>Managed supplier onboarding and performance evaluation processes.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-top">
+                <div>
+                  <p class="job-title">Previous Roles within Direct Sourcing Solutions</p>
+                  <div class="job-company">Category Manager • Senior Buyer • Buyer</div>
+                </div>
+                <div class="job-date">2014 – 2022</div>
+              </div>
+              <ul>
+                <li>Category Manager (2021 – 2022)</li>
+                <li>Senior Buyer (2019 – 2020)</li>
+                <li>Buyer (2014 – 2016)</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-top">
+                <div>
+                  <p class="job-title">ITC Operator</p>
+                  <div class="job-company">T-Systems Košice</div>
+                </div>
+                <div class="job-date">Oct 2012 – Nov 2013</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="section achievements">
+          <h2>Key Achievements</h2>
+          <ul>
+            <li>Delivered 25% cost savings on a $2M PPE sourcing project through supplier benchmarking and a competitive RFQ process.</li>
+            <li>Standardized office paper sourcing across multiple customers with approximately $500K annual spend.</li>
+            <li>Consolidated the supplier base in office supplies from 5 suppliers to 2, moving 80% of spend to a preferred supplier.</li>
+            <li>Achieved 79% savings through re-sourcing of industrial filters with $100K spend.</li>
+            <li>Delivered 28% savings in pallet sourcing through a local Mexican manufacturer on $500K spend.</li>
+            <li>Reduced Loctite sourcing costs by 22% on $650K spend.</li>
+            <li>Generated 70% savings by switching to a new cardboard supplier on $100K spend.</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside>
+        <div class="section">
+          <h2>Core Competencies</h2>
+          <div class="chips">
+            <span class="chip">Strategic Sourcing</span>
+            <span class="chip">Category Management</span>
+            <span class="chip">Supplier Negotiation</span>
+            <span class="chip">SRM</span>
+            <span class="chip">Cost Reduction</span>
+            <span class="chip">Contract Negotiation</span>
+            <span class="chip">Global Procurement</span>
+            <span class="chip">Spend Analysis</span>
+            <span class="chip">Supplier Risk Management</span>
+            <span class="chip">RFQ / RFP</span>
+            <span class="chip">TCO</span>
+            <span class="chip">Supplier Performance</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Quick Overview</h2>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>10+ years</strong>
+              <span class="muted">in procurement and sourcing</span>
+            </div>
+            <div class="stat">
+              <strong>€40M+</strong>
+              <span class="muted">annual procurement spend</span>
+            </div>
+            <div class="stat">
+              <strong>3 regions</strong>
+              <span class="muted">Europe, Mexico, USA</span>
+            </div>
+            <div class="stat">
+              <strong>8 buyers</strong>
+              <span class="muted">managed in an international team</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Education</h2>
+          <div class="education-item">
+            <strong>University of Economics in Košice</strong><br />
+            Master’s Degree (2007–2013)
+          </div>
+          <div class="education-item">
+            <strong>Erasmus Program – Spain</strong><br />
+            2010–2011
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Languages</h2>
+          <div class="lang-item"><strong>English</strong><br />Professional Working Proficiency (B2)</div>
+          <div class="lang-item"><strong>Spanish</strong><br />Professional Working Proficiency (C1)</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Created as a CV presentation website – Lukáš Pačuta
+    </footer>
+  </div>
+</body>
+</html>
